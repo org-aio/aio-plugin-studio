@@ -2,13 +2,10 @@
 resolver = "2"
 members = [
     "app",
-    "cli",
     "generated/apps/*",
     "app/plugins/studio",
     "lib/biz/*",
-    "lib/plugin/*",
 ]
-exclude = ["lib/dioxus-admin-workbench"]
 
 [workspace.package]
 version = "2026.5.10"
@@ -16,8 +13,8 @@ edition = "2024"
 rust-version = "1.95"
 license = "MIT OR Apache-2.0"
 authors = ["zjarlin"]
-homepage = "https://github.com/zjarlin/aio-platform"
-repository = "https://github.com/zjarlin/aio-platform"
+homepage = "https://github.com/zjarlin/aio-plugin-studio"
+repository = "https://github.com/zjarlin/aio-plugin-studio"
 
 [workspace.dependencies]
 anyhow = "1.0.99"
@@ -29,11 +26,9 @@ base64 = "0.22.1"
 dioxus = { version = "0.7.9", default-features = false, features = ["macro", "html", "signals", "router"] }
 convert_case = "0.8.0"
 deunicode = "1.6.2"
-az-plugin-core = { version = "=2026.5.10", path = "lib/plugin/core" }
-az-plugin-manifest = { version = "=2026.5.10", path = "lib/plugin/manifest", default-features = false }
-az-plugin-package = { version = "=2026.5.10", path = "lib/plugin/package" }
-az-dioxus-admin-shell = { version = "=2026.8.17", path = "lib/dioxus-admin-workbench/crates/admin-shell/dioxus", default-features = false }
-az-ui-components = { version = "=2026.8.17", path = "lib/dioxus-admin-workbench/crates/ui/components" }
+az-plugin-core = { git = "https://github.com/zjarlin/aio-platform.git", rev = "62ce9c1647383ff05705f301b657616dc21ed6f4" }
+az-dioxus-admin-shell = { git = "https://github.com/zjarlin/dioxus-admin-workbench.git", rev = "819ae159ab7dcba65d33d056d528ae8f7ec32ae2", default-features = false }
+az-ui-components = { git = "https://github.com/zjarlin/dioxus-admin-workbench.git", rev = "819ae159ab7dcba65d33d056d528ae8f7ec32ae2" }
 dotenvy = "0.15.7"
 evalexpr = "13.1.0"
 flate2 = "1.1.9"
