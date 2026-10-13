@@ -10,7 +10,13 @@ workspace = "../../.."
 
 [dependencies]
 anyhow.workspace = true
+az-plugin-core.workspace = true
 dill.workspace = true
+encoding_rs = "0.8.35"
+reqwest.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sqlx.workspace = true
 studio = { package = "az-studio", path = "../../../app/plugins/studio", default-features = false, features = ["server"] }
 
 [lints]

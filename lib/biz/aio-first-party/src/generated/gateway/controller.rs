@@ -94,6 +94,23 @@ impl ConventionEndpointProvider for PostAssetsWeatherCurrentController {
 #[dill::component]
 #[dill::interface(dyn ConventionEndpointProvider)]
 #[dill::scope(dill::Singleton)]
+pub(crate) struct PostAssetsWeatherHistoryController {
+    service: Arc<dyn GatewayService>,
+}
+
+impl ConventionEndpointProvider for PostAssetsWeatherHistoryController {
+    fn endpoint_id(&self) -> &'static str {
+        super::util::endpoint_id("81cb2b87-6c40-b624-25f9-b59af212b621")
+    }
+
+    fn handle(&self, request: EndpointRequest) -> EndpointFuture<'_> {
+        self.service.post_assets_weather_history(request)
+    }
+}
+
+#[dill::component]
+#[dill::interface(dyn ConventionEndpointProvider)]
+#[dill::scope(dill::Singleton)]
 pub(crate) struct GetAssetsUsageController {
     service: Arc<dyn GatewayService>,
 }
@@ -199,6 +216,7 @@ pub(crate) fn register(builder: &mut CatalogBuilder) {
     builder.add::<PostRunController>();
     builder.add::<GetAssetsController>();
     builder.add::<PostAssetsWeatherCurrentController>();
+    builder.add::<PostAssetsWeatherHistoryController>();
     builder.add::<GetAssetsUsageController>();
     builder.add::<GetRoutesController>();
     builder.add::<PostRouteController>();

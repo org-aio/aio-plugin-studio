@@ -12,6 +12,8 @@ pub(crate) trait GatewayService: Send + Sync {
     fn get_assets(&self, request: EndpointRequest) -> EndpointFuture<'_>;
     /// Weather Current Asset
     fn post_assets_weather_current(&self, request: EndpointRequest) -> EndpointFuture<'_>;
+    /// Weather History Asset
+    fn post_assets_weather_history(&self, request: EndpointRequest) -> EndpointFuture<'_>;
     /// Edge Asset Usage
     fn get_assets_usage(&self, request: EndpointRequest) -> EndpointFuture<'_>;
     /// Managed API Routes
